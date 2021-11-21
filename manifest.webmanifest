@@ -1,0 +1,13 @@
+{
+  "name": "Au Falafel du Liban",
+  "short_name": "Falafel Liban",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffdb99",
+  "theme_color": "#ffdb99",
+  "description": "Site officiel du restaurant Libanais, Au Falafel du Liban, à Brest, France.",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
