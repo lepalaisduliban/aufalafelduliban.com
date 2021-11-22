@@ -60,8 +60,10 @@ header h1 {
   color: hsl(3, 66%, 52%);
   text-shadow: 1px 1px #000;
 }
-header h3 {
+header h3, header p {
   grid-area: sub;
+  font-size: 1.17em;
+  font-weight: bold;
 }
 header .halal {
   height: 1.4em;
