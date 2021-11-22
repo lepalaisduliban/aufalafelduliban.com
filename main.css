@@ -49,6 +49,7 @@ header * {
 }
 header > a[href='#'] {
   display: contents;
+  text-decoration: none;
 }
 header h1 {
   grid-area: title;
