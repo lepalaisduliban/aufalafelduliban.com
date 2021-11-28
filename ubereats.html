@@ -20,6 +20,17 @@
       font-display: block;
     }
 
+    img {
+      max-width: 100%;
+    }
+    .images {
+      display: flex;
+      align-items: flex-end;
+    }
+    .images img {
+      flex: 1 1 0;
+      width: 0;
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -372,6 +383,7 @@
         <li>pâtisserie orientale</li>
         <li>boisson</li>
       </ul>
+      <img src="uberimages/assiette kafta 1.jpg">
     </section>
     <section id="boissons">
       <span class="price">3€</span>
@@ -390,9 +402,7 @@
       </ul>
     </section>
     <section id="assiettes" class="long-prices">
-      <img src="uberimages/assiette kafta 1.jpg">
       <img src="uberimages/assiette kafta 2.jpg">
-      <img src="uberimages/assiette taouk.jpg">
       <h2>Assiettes</h2>
       <p>(+ salade libanaise + frites + hommos)</p>
       <ul>
@@ -429,9 +439,10 @@
       </ul>
     </section>
     <section id="sandwiches" class="long-prices">
-      <img src="uberimages/s falafel 3.jpeg">
-      <img src="uberimages/s taouk.jpeg">
-      <img src="uberimages/kafta.jpeg">
+      <div class="images">
+        <img src="uberimages/s falafel 3.jpeg">
+        <img src="uberimages/s taouk.jpeg">
+      </div>
       <h2>Sandwiches</h2>
       <p>(+ frites)</p>
       <ul>
@@ -463,8 +474,11 @@
       </ul>
     </section>
     <section id="barquettes">
-      <img src="uberimages/s falafel 1.jpeg">
-      <img src="uberimages/taouk 1.jpeg">
+      <div class="images">
+        <img src="uberimages/s falafel 1.jpeg">
+        <img src="uberimages/taouk 1.jpeg">
+        <img src="uberimages/kafta.jpeg">
+      </div>
       <h2>Barquettes</h2>
       <p>(+ salade libanaise + frites)</p>
       <ul>
@@ -508,8 +522,10 @@
     </section>
     <section id="desserts">
       <h2>Desserts Libanais</h2>
-      <img src="uberimages/sweets 1.png">
-      <img src="uberimages/sweets 2.png">
+      <div class="images">
+        <img src="uberimages/sweets 1.png">
+        <img src="uberimages/sweets 2.png">
+      </div>
       <ul>
         <li>
           <span class="price">11€</span>
