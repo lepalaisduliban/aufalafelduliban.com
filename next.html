@@ -329,6 +329,13 @@
     #contact h2 {
       margin-bottom: 0;
     }
+    #contact h2 a {
+      float: right;
+    }
+    #contact h2 a img {
+      display: block;
+      height: 1.2em;
+    }
     address ul,
     #horaires ul {
       margin: 0;
@@ -455,6 +462,11 @@
           <h3>Arayes au fromage</h3>
           <p>Pain libanais grillé au fromage et au thym</p>
         </li>
+        <li>
+          <span class="price">6,50€</span>
+          <h3>Chawarma <span style="font-size: 0.7em;vertical-align: top;">(nouveau)</span></h3>
+          <p>Fait maison</p>
+        </li>
       </ul>
     </section>
     <section id="barquettes" class="long-prices">
@@ -475,6 +487,10 @@
           <span class="price">6,50€</span>
           <h3>Kafta</h3>
           <p>1 brochette</p>
+        </li>
+        <li>
+          <span class="price">3€</span>
+          <h3>Frites</h3>
         </li>
       </ul>
     </section>
@@ -534,7 +550,10 @@
       </ul>
     </section>
     <section id="contact">
-      <h2>Nous Contacter</h2>
+      <h2>
+        Nous Contacter
+        <a href="https://www.instagram.com/aufalafelduliban/" title="Notre page instagram @aufalafelduliban"><img src="images/instagram.png" alt="Instagram logo" width="40" height="40"></a>
+      </h2>
       <section id="adresse">
         <h3>Adresse</h3>
         <address>
@@ -558,7 +577,10 @@
         <p>Carte bleue, chèques déjeunés, chèques vacances, et chèques banque.<br><img src="images/logo_paiement.jpg" width="247" height="149" alt="VISA, MasterCard, CB, VISA Electron, Maestro, Ticket Restaurant, Chèque table, Chèque Déjeuner, ancv chèque vacances, chèque banque, espèces"></p>
       </section>
     </section>
-    <iframe id="google-map" title="Localisation du restaurant sur google maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.7255822007155!2d-4.494665984121122!3d48.385007541873975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4816b98a23463443%3A0x72f779015d6f613a!2sAu%20Falafel%20du%20Liban!5e0!3m2!1sen!2sus!4v1636908755965!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <noscript class="loading-lazy">
+      <!-- <iframe id="google-map" title="Localisation du restaurant sur google maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.7255822007155!2d-4.494665984121122!3d48.385007541873975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4816b98a23463443%3A0x72f779015d6f613a!2sAu%20Falafel%20du%20Liban!5e0!3m2!1sen!2sus!4v1636908755965!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+      <iframe id="google-map" title="Localisation du restaurant sur google maps" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1 1%27%3E%3C/svg%3E" data-lazy-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.7255822007155!2d-4.494665984121122!3d48.385007541873975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4816b98a23463443%3A0x72f779015d6f613a!2sAu%20Falafel%20du%20Liban!5e0!3m2!1sen!2sus!4v1636908755965!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </noscript>
     <script>
       var rs = [['11:30', '14:00'], ['17:30', '23:30']],
           now = new Date(),
@@ -592,6 +614,58 @@
       function time(t) {
         return '<time datetime="' + t + '">' + t + '</time>';
       }
+
+      // var noScriptTag = document.querySelector('noscript.loading-lazy');
+      // var lazyAreaHtml = noScriptTag.textContent || noScriptTag.innerHTML;
+
+      // var intersectionObserver;
+      // if ('IntersectionObserver' in window && 'onscroll' in window && !('loading' in HTMLIFrameElement.prototype)) {
+      //   intersectionObserver = new IntersectionObserver(
+      //     function(entries, observer) {
+      //       entries.forEach((entry) => {
+      //         if (entry.intersectionRatio !== 0) {
+      //           var lazyItem = entry.target;
+      //           observer.unobserve(lazyItem);
+      //           restoreSource(lazyItem);
+      //         }
+      //       });
+      //     },
+      //     {
+      //       // Start download if the item gets within 256px in the Y axis
+      //       rootMargin: '0px 0px 256px 0px',
+      //       threshold: 0.01,
+      //     }
+      //   );
+
+      //   lazyAreaHtml = lazyAreaHtml.replace(/(?:\r\n|\r|\n|\t| )src=/g, ' src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1 1%27%3E%3C/svg%3E" data-lazy-src=');
+      // }
+
+      // var lazyArea = document.createElement('div');
+      // lazyArea.innerHTML = lazyAreaHtml;
+      // var actualChild = lazyArea.firstChild;
+
+      // if (intersectionObserver) {
+      //   intersectionObserver.observe(actualChild);
+      // }
+
+      // noScriptTag.parentNode.insertBefore(actualChild, noScriptTag);
+      // noScriptTag.parentNode.removeChild(noScriptTag);
+
+      // /**
+      //  * Handle printing the page
+      //  */
+      // if (window.matchMedia) {
+      //   window.matchMedia('print').addListener(function(mql) {
+      //     if (mql.matches) {
+      //       restoreSource(actualChild);
+      //     }
+      //   });
+      // }
+
+      // function restoreSource(lazyItem) {
+      //   lazyItem.setAttribute('src', lazyItem.getAttribute('data-lazy-src'));
+      //   lazyItem.removeAttribute('data-lazy-src');
+      // }
     </script>
   </main>
   <footer>
