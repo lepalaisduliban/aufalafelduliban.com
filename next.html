@@ -606,11 +606,11 @@
       a.removeAttribute('aria-hidden');
 
       var iframe = document.getElementById('google-map');
-      if ('IntersectionObserver' in window && 'onscroll' in window && !('loading' in HTMLIFrameElement.prototype)) {
-        new IntersectionObserver(function(_, o) {o.unobserve(iframe);restore()}, {rootMargin: '0px 0px 256px 0px',threshold: 0.01}).observe(iframe);
-        if (window.matchMedia) {
-          window.matchMedia('print').addListener(function(mql) {if (mql.matches) restore()});
-        }
+      if (window.IntersectionObserver && 'onscroll' in window && !('loading' in HTMLIFrameElement.prototype)) {
+        new IntersectionObserver(function(e, o) {
+          if (e[0].intersectionRatio > 0) {o.unobserve(iframe);restore()}
+        }, {rootMargin: '0px 0px 256px 0px',threshold: 0.01}).observe(iframe);
+        if (window.matchMedia) window.matchMedia('print').addListener(function(mql) {if (mql.matches) restore()});
       } else {
         restore();
       }
