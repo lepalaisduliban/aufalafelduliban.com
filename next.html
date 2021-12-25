@@ -356,7 +356,56 @@
       content: "🌐 ";
     }
     #google-map {
+      position: relative;
       min-height: 450px;
+      display: grid;
+      align-items: center;
+      align-content: center;
+      overflow: hidden;
+    }
+    #google-map img {
+      width: 100%;
+    }
+    @supports (object-fit: cover) {
+      #google-map img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    #google-map iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #google-map .gm-watermark {
+      position: absolute;
+      z-index: 1;
+      bottom: 19px;
+      left: 50%;
+      width: 66px;
+      height: 26px;
+      margin-left: -33px;
+      background: url('//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png');
+      pointer-events: none;
+    }
+    @media screen and (prefers-color-scheme: dark) {
+      #google-map .gm-watermark {
+        background: url('//www.google.com/images/branding/mapslogo/1x/googlelogo_light_62x24_with_2_stroke_color_66x26dp.png');
+      }
+    }
+    #google-map .gm-cc {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      background-color: hsla(0,0%,100%,.8);
+      padding-left: 3px;
+      padding-right: 15px;
+      font: 10px/13px Roboto, Arial, sans-serif;
+      color: #000;
+      -moz-user-select: none;
+      user-select: none;
     }
   </style>
 </head>
@@ -578,7 +627,19 @@
         <p>Carte bleue, chèques déjeunés, chèques vacances, et chèques banque.<br><img src="images/logo_paiement.jpg" width="247" height="149" alt="VISA, MasterCard, CB, VISA Electron, Maestro, Ticket Restaurant, Chèque table, Chèque Déjeuner, ancv chèque vacances, chèque banque, espèces"></p>
       </section>
     </section>
-    <iframe id="google-map" title="Localisation du restaurant sur google maps" src="data:text/html," data-old="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.7255822007155!2d-4.494665984121122!3d48.385007541873975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4816b98a23463443%3A0x72f779015d6f613a!2sAu%20Falafel%20du%20Liban!5e0!3m2!1sen!2sus!4v1636908755965!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div id="google-map">
+      <noscript>
+        <a href="https://goo.gl/maps/ZL6Mem1WyV5Ypxef7">
+          <picture>
+            <source srcset="images/map_dark-min.png" media="(prefers-color-scheme: dark)">
+            <img src="images/map_light-min.png" alt="Localisation du restaurant sur google maps" width="810" height="600" loading="lazy">
+          </picture>
+        </a>
+        <div aria-hidden="true" class="gm-watermark"></div>
+        <div role="contentinfo" class="gm-cc">Map data ©2021</div>
+      </noscript>
+      <iframe title="Localisation du restaurant sur google maps" src="data:text/html," data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.7255822007155!2d-4.494665984121122!3d48.385007541873975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4816b98a23463443%3A0x72f779015d6f613a!2sAu%20Falafel%20du%20Liban!5e0!3m2!1sen!2sus!4v1636908755965!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
     <script>
       var rs = [['11:30', '14:00'], ['17:30', '23:30']],
           now = new Date(),
@@ -605,7 +666,7 @@
       a.className = 'open-hours ' + c;
       a.removeAttribute('aria-hidden');
 
-      var iframe = document.getElementById('google-map');
+      var iframe = document.querySelector('#google-map iframe');
       if (window.IntersectionObserver && 'onscroll' in window && !('loading' in HTMLIFrameElement.prototype)) {
         new IntersectionObserver(function(e, o) {
           if (e[0].intersectionRatio > 0) {o.unobserve(iframe);restore()}
@@ -623,8 +684,8 @@
         return '<time datetime="' + t + '">' + t + '</time>';
       }
       function restore() {
-        iframe.setAttribute('src', iframe.getAttribute('data-old'));
-        iframe.removeAttribute('data-old');
+        iframe.setAttribute('src', iframe.getAttribute('data-src'));
+        iframe.removeAttribute('data-src');
       }
     </script>
   </main>
