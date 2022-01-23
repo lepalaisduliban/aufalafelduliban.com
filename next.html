@@ -77,7 +77,6 @@
     header p {
       grid-area: sub;
       font-size: 1.17em;
-      font-weight: bold;
     }
     header .halal {
       width: auto;
@@ -109,15 +108,15 @@
     header nav ul li:hover {
       background: #fff5;
     }
-    header nav ul li a {
-      padding: 0 8px;
-      display: flex;
-    }
     header nav ul li a,
     header .open-hours {
       padding: 5px 8px;
       text-decoration: none;
       color: inherit;
+    }
+    header nav ul li a {
+      display: flex;
+      text-decoration: 2px solid underline;
     }
     header .open-hours {
       grid-area: hours;
@@ -142,7 +141,8 @@
     main {
       margin-top: 10px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(400px, max-content));
+      justify-content: center;
       grid-gap: 10px;
       gap: 10px;
 
@@ -177,11 +177,14 @@
         grid-template:
           'logo  title nav' auto
           'logo  sub   nav' 1fr
-          'hours hours   .' auto / auto 1fr auto;
+          'hours hours nav' auto / auto 1fr auto;
       }
       header .open-hours {
         justify-self: start;
         text-align: center;
+      }
+      header nav ul {
+        align-content: start;
       }
     }
     @media screen and (max-width: 499px) {
