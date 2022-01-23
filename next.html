@@ -51,8 +51,8 @@
       padding: 5px;
       display: grid;
       grid-template:
-        'logo  title h nav' auto
-        'logo  sub   h hours' 1fr / auto auto 1fr auto;
+        'logo brand halal nav  ' auto
+        'logo brand halal hours' auto / auto auto 1fr auto;
       grid-column-gap: 10px;
       column-gap: 10px;
       align-items: center;
@@ -61,12 +61,14 @@
       margin: 0;
       white-space: nowrap;
     }
-    header > a[href='#'] {
+    header a[href='#'] {
       display: contents;
       text-decoration: none;
     }
+    header .brand {
+      grid-area: brand;
+    }
     header h1 {
-      grid-area: title;
       font-family: 'Lobster Two';
       font-size: 1.8rem;
       font-style: italic;
@@ -74,17 +76,16 @@
       color: hsl(3, 66%, 52%);
       text-shadow: 1px 1px #000;
     }
-    header p {
-      grid-area: sub;
-    }
     header .halal {
-      grid-area: h;
-      width: auto;
-      height: 1.4em;
-      vertical-align: middle;
+      grid-area: halal;
+      align-self: center;
+      justify-self: center;
+      width: clamp(2rem, calc(100vw - 330px), 3rem);
+      height: auto;
     }
     header .logo {
       grid-area: logo;
+      margin-left: clamp(-70px, calc(100vw - 400px), 0px);
     }
     header nav {
       grid-area: nav;
@@ -172,12 +173,11 @@
       max-width: 900px;
       padding: 5px;
     }
-    @media screen and (max-width: 699px) {
+    @media screen and (max-width: 719px) {
       header {
         grid-template:
-          'logo  title h nav' auto
-          'logo  sub   h nav' 1fr
-          'hours hours hours nav' auto / auto auto 1fr auto;
+          'logo  brand halal nav' auto
+          'hours hours hours nav' 2rem / auto auto 1fr auto;
       }
       header .open-hours {
         justify-self: start;
@@ -187,20 +187,24 @@
         align-content: start;
       }
     }
-    @media screen and (max-width: 499px) {
+    @media screen and (max-width: 549px) {
       header {
         grid-template:
-          'logo  title h' auto
-          'logo  sub   h' auto
-          'nav   nav   nav' 1fr
-          'hours hours hours' auto / auto auto 1fr;
+          'logo  brand halal' auto
+          'nav   nav   nav  ' 2rem
+          'hours hours hours' 2rem / auto auto auto;
+          justify-content: center;
       }
       header nav,
       header .open-hours {
         justify-self: center;
+        align-content: stretch;
       }
       header nav ul {
         justify-content: center;
+      }
+      header nav ul li {
+        max-height: none;
       }
       main {
         grid-template-columns: 1fr;
@@ -217,16 +221,6 @@
       header .open-hours {
         line-height: 40px;
       } */
-    }
-    @media screen and (max-width: 350px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
-    }
-    @media screen and (max-width: 319px) {
-      header .logo {
-        display: none;
-      }
     }
     @media screen and (prefers-color-scheme: dark) {
       html {
@@ -421,8 +415,10 @@
   <div class="header-wrapper">
     <header>
       <a href="#"><img class="logo" srcset="images/logo@2x.png 2x, images/logo.png 1x" src="images/logo.png" width="100" height="50" alt="Logo Au Falafel du Liban" /></a>
-      <a href="#"><h1>Au Falafel du Liban</h1></a>
-      <p>Sur place - À emporter - <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
+      <div class="brand">
+        <a href="#"><h1>Au Falafel du Liban</h1></a>
+        <p>Sur place - À emporter - <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
+      </div>
       <img class="halal" src="images/logo-halal.svg" alt="logo halal" width="30" height="30">
       <nav>
         <ul>
