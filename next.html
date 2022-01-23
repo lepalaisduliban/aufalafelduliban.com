@@ -51,8 +51,8 @@
       padding: 5px;
       display: grid;
       grid-template:
-        'logo  title nav' auto
-        'logo  sub   hours' 1fr / auto 1fr auto;
+        'logo  title h nav' auto
+        'logo  sub   h hours' 1fr / auto auto 1fr auto;
       grid-column-gap: 10px;
       column-gap: 10px;
       align-items: center;
@@ -76,9 +76,9 @@
     }
     header p {
       grid-area: sub;
-      font-size: 1.17em;
     }
     header .halal {
+      grid-area: h;
       width: auto;
       height: 1.4em;
       vertical-align: middle;
@@ -175,9 +175,9 @@
     @media screen and (max-width: 699px) {
       header {
         grid-template:
-          'logo  title nav' auto
-          'logo  sub   nav' 1fr
-          'hours hours nav' auto / auto 1fr auto;
+          'logo  title h nav' auto
+          'logo  sub   h nav' 1fr
+          'hours hours hours nav' auto / auto auto 1fr auto;
       }
       header .open-hours {
         justify-self: start;
@@ -190,10 +190,10 @@
     @media screen and (max-width: 499px) {
       header {
         grid-template:
-          'logo  title' auto
-          'logo  sub  ' auto
-          'nav   nav  ' 1fr
-          'hours hours' auto / auto 1fr;
+          'logo  title h' auto
+          'logo  sub   h' auto
+          'nav   nav   nav' 1fr
+          'hours hours hours' auto / auto auto 1fr;
       }
       header nav,
       header .open-hours {
@@ -221,9 +221,6 @@
     @media screen and (max-width: 350px) {
       header h1 {
         font-size: 1.6rem;
-      }
-      header p {
-        font-size: 1rem;
       }
     }
     @media screen and (max-width: 319px) {
@@ -425,8 +422,8 @@
     <header>
       <a href="#"><img class="logo" srcset="images/logo@2x.png 2x, images/logo.png 1x" src="images/logo.png" width="100" height="50" alt="Logo Au Falafel du Liban" /></a>
       <a href="#"><h1>Au Falafel du Liban</h1></a>
-      <p>Sur place - À emporter - Livraison par <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
-      <!-- <img class="halal" src="images/logo-halal.svg" alt="logo halal" width="30" height="30"> -->
+      <p>Sur place - À emporter - <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
+      <img class="halal" src="images/logo-halal.svg" alt="logo halal" width="30" height="30">
       <nav>
         <ul>
           <li><a href="#menu">La Carte</a></li>
@@ -626,6 +623,9 @@
             <li><a href="https://aufalafelduliban.com">aufalafelduliban.com</a></li>
           </ul>
         </address>
+        <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats">
+          <img src="images/logo-ubereats-white.svg" alt="Logo de Ubereats" style="height: 1em">
+        </a>
       </section>
       <section id="horaires">
         <h3>Horaires</h3>
