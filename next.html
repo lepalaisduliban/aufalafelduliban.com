@@ -52,7 +52,7 @@
       display: grid;
       grid-template:
         'logo brand halal nav  ' auto
-        'logo brand halal hours' auto / auto auto 1fr auto;
+        '.    .     .     hours' 1fr / auto auto 1fr auto;
       grid-column-gap: 10px;
       column-gap: 10px;
       align-items: center;
@@ -177,8 +177,7 @@
       header {
         grid-template:
           'logo  brand halal nav' auto
-          'hours hours hours nav' 2rem / auto auto 1fr auto;
-        padding-bottom: 0;
+          'hours hours hours nav' 1fr / auto auto 1fr auto;
       }
       header .open-hours {
         justify-self: start;
