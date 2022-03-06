@@ -90,6 +90,14 @@
       align-self: self-start;
       margin-left: clamp(-70px, calc(100vw - 400px), 0px);
     }
+    header .ubereats:hover ::before {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      bottom: -5px;
+      right: -5px;
+      content: '';
+    }
     header nav {
       grid-area: nav;
       align-self: stretch;
@@ -108,6 +116,7 @@
       display: flex;
       font-weight: bold;
     }
+    header .ubereats:hover ::before,
     header .open-hours:hover,
     header nav ul li:hover {
       background: #fff5;
@@ -423,7 +432,7 @@
       <img class="logo" srcset="images/logo@2x.png 2x, images/logo.png 1x" src="images/logo.png" width="100" height="50" alt="Logo Au Falafel du Liban" />
       <div class="brand">
         <h1>Au Falafel du Liban</h1>
-        <p>Sur place - À emporter - <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
+        <p>Sur place - À emporter - <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" class="ubereats" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
       </div>
       <img class="halal" src="images/logo-halal.svg" alt="logo halal" width="30" height="30">
       <nav>
