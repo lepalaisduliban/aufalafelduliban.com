@@ -320,6 +320,14 @@
     section.long-prices ul .price {
       width: 90px;
     }
+    #fait-maison {
+      grid-area: auto / 1 / auto / -1;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    #formule-midi {
+      grid-area: span 2;
+    }
     #formule-midi ul {
       columns: 2;
       column-gap: 30px;
@@ -463,6 +471,7 @@
     </header>
   </div>
   <main id="menu">
+    <aside id="fait-maison">Tous les produits sont fait maison</aside>
     <section id="formule-midi">
       <span class="price">13€</span>
       <h2>Formule Midi</h2>
@@ -475,24 +484,15 @@
         <li>boisson</li>
       </ul>
     </section>
-    <section id="formule-etudiant">
-      <span class="price">6,50€</span>
-      <h2>Formule Étudiant</h2>
-      <p>Sandwich au choix</p>
-      <ul class="plus">
-        <li>frites</li>
-        <li>boisson</li>
-      </ul>
-    </section>
     <section id="formule-express">
       <span class="price">8,50€</span>
       <h2>Formule Express</h2>
-      <p>Sandwich au choix</p>
-      <ul class="plus">
-        <li>frites</li>
-        <li>salade libanaise</li>
-        <li>boisson</li>
-      </ul>
+      <p>Sandwich au choix + frites + salade libanaise + boisson</p>
+    </section>
+    <section id="formule-etudiant">
+      <span class="price">6,50€</span>
+      <h2>Formule Étudiant</h2>
+      <p>Sandwich au choix + frites + boisson</p>
     </section>
     <section id="sandwiches" class="long-prices">
       <h2>Sandwiches</h2>
@@ -596,7 +596,7 @@
         </li>
       </ul>
     </section>
-    <section id="entrees">
+    <section id="entrees" class="long-prices">
       <h2>Entrées</h2>
       <ul>
         <li>
