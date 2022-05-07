@@ -692,12 +692,20 @@
     </div>
     <script>
       var rs = [['11:30', '14:00'], ['17:30', '23:30']],
+          rss = ['20:00', '23:30'],
           now = new Date(),
-          m = '<em>Fermé</em> ⋅ Ouvre à ' + time(rs[0][0]) + ' lun.',
+          m = '<em>Fermé</em> ⋅ Ouvre à ' + time(now.getDay() == 6 /*Saturday*/ ? rss[0] : rs[0][0]),
           c = 'closed',
-          a, h, i, r;
-      if (now.getDay() != 0 /*Sunday*/) {
-        h = now.getHours() + now.getMinutes() / 60;
+          h = now.getHours() + now.getMinutes() / 60,
+          a, i, r;
+      if (now.getDay() == 0 /*Sunday*/) {
+        if (h < hours(rss[0])) {
+          m = '<em>Fermé</em> ⋅ Ouvre à ' + time(rss[0]);
+        } else if (h < hours(rss[1])) {
+          c = 'open';
+          m = '<em>Ouvert</em> ⋅ Ferme à ' + time(rss[1]);
+        }
+      } else {
         for (i = 0; i < rs.length; i++) {
           r = rs[i];
           if (h < hours(r[0])) {
