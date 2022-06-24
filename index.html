@@ -102,9 +102,18 @@
       align-self: self-start;
       margin-left: clamp(-70px, calc(100vw - 400px), 0px);
     }
+    header .brand p {
+      display: flex;
+    }
+    header .deliveroo {
+      margin: 0 5px;
+    }
+    header .deliveroo,
     header .ubereats {
       position: relative;
+      font-size: 1.1rem;
     }
+    header .deliveroo::before,
     header .ubereats::before {
       position: absolute;
       top: -5px;
@@ -132,6 +141,7 @@
       display: flex;
       font-weight: bold;
     }
+    header .deliveroo:hover::before,
     header .ubereats:hover::before,
     header .open-hours:hover,
     header nav ul li:hover {
@@ -239,6 +249,11 @@
       }
       main {
         grid-template-columns: 1fr;
+      }
+    }
+    @media screen and (max-width: 400px) {
+      header .brand p {
+        letter-spacing: -1px;
       }
     }
     @media screen and (prefers-color-scheme: dark) {
@@ -445,7 +460,7 @@
       <img class="logo" srcset="images/logo@2x.png 2x, images/logo.png 1x" src="images/logo.png" width="100" height="50" alt="Logo Au Falafel du Liban" />
       <div class="brand">
         <h1>Au Falafel du Liban</h1>
-        <p>Sur place - À emporter - <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" class="ubereats" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
+        <p>Sur place · À emporter · <a href="https://deliveroo.fr/menu/brest/brest-centre-ville/au-falafel-du-liban" class="deliveroo" title="Notre page Deliveroo"><img src="images/logo-deliveroo-black.svg" alt="Logo de Deliveroo" style="height: 1em"></a><a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" class="ubereats" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
       </div>
       <img class="halal" src="images/logo-halal.svg" alt="logo halal" width="30" height="30">
       <nav>
@@ -648,10 +663,16 @@
         Nous Contacter
         <a href="https://www.instagram.com/aufalafelduliban/" title="Notre page instagram @aufalafelduliban"><img src="images/instagram.png" alt="Instagram logo" width="40" height="40"></a>
         <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" title="Notre page Ubereats">
-        <picture>
-          <source srcset="images/logo-ubereats-white.svg" media="(prefers-color-scheme: dark)">
-          <img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" />
-        </picture>
+          <picture>
+            <source srcset="images/logo-ubereats-white.svg" media="(prefers-color-scheme: dark)">
+            <img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" />
+          </picture>
+        </a>
+        <a href="https://deliveroo.fr/menu/brest/brest-centre-ville/au-falafel-du-liban" title="Notre page Deliveroo">
+          <picture>
+            <source srcset="images/logo-deliveroo-color.svg" media="(prefers-color-scheme: dark)">
+            <img src="images/logo-deliveroo-black.svg" alt="Logo de Deliveroo" />
+          </picture>
         </a>
       </h2>
       <section id="adresse">
