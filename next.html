@@ -336,9 +336,11 @@
       width: 90px;
     }
     section .note {
-      text-align: right;
+      float: right;
       font-size: small;
       font-style: italic;
+      font-weight: normal;
+      line-height: 1.8em;
     }
     #fait-maison {
       grid-area: auto / 1 / auto / -1;
@@ -698,12 +700,14 @@
         </address>
       </section>
       <section id="horaires">
-        <h3>Horaires</h3>
+        <h3>
+          Horaires
+          <p class="note">Mise à jours <time datetime="2022-07-15">le 15/07/2022</time></p>
+        </h3>
         <ul>
           <li>Du Lundi au Samedi: <time datetime="11:30">11:30</time> - <time datetime="23:30">23:30</time></li>
           <li>Dimanche: <time datetime="18:00">18:00</time> - <time datetime="23:30">23:30</time></li>
         </ul>
-        <p class="note">Mise à jours : <time datetime="2022-07-15">le 15/07/2022</time></p>
       </section>
       <section id="mode-de-paiement">
         <h3>Mode de paiement</h3>
