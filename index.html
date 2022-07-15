@@ -105,7 +105,7 @@
     header .brand p {
       display: flex;
     }
-    header .deliveroo {
+    header .ubereats {
       margin: 0 5px;
     }
     header .deliveroo,
@@ -323,6 +323,13 @@
     section.long-prices ul .price {
       width: 90px;
     }
+    section .note {
+      float: right;
+      font-size: small;
+      font-style: italic;
+      font-weight: normal;
+      line-height: 1.8em;
+    }
     #fait-maison {
       grid-area: auto / 1 / auto / -1;
       text-align: center;
@@ -460,7 +467,7 @@
       <img class="logo" srcset="images/logo@2x.png 2x, images/logo.png 1x" src="images/logo.png" width="100" height="50" alt="Logo Au Falafel du Liban" />
       <div class="brand">
         <h1>Au Falafel du Liban</h1>
-        <p>Sur place · À emporter · <a href="https://deliveroo.fr/menu/brest/brest-centre-ville/au-falafel-du-liban" class="deliveroo" title="Notre page Deliveroo"><img src="images/logo-deliveroo-black.svg" alt="Logo de Deliveroo" style="height: 1em"></a><a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" class="ubereats" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
+        <p>Sur place · À emporter · <a href="https://www.ubereats.com/fr/store/au-falafel-du-liban/clgF7h-cQgCTFlCZ4ef9lQ" class="ubereats" title="Notre page Ubereats"><img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" style="height: 1em"></a></p>
       </div>
       <img class="halal" src="images/logo-halal.svg" alt="logo halal" width="30" height="30">
       <nav>
@@ -668,12 +675,6 @@
             <img src="images/logo-ubereats-black.svg" alt="Logo de Ubereats" />
           </picture>
         </a>
-        <a href="https://deliveroo.fr/menu/brest/brest-centre-ville/au-falafel-du-liban" title="Notre page Deliveroo">
-          <picture>
-            <source srcset="images/logo-deliveroo-color.svg" media="(prefers-color-scheme: dark)">
-            <img src="images/logo-deliveroo-black.svg" alt="Logo de Deliveroo" />
-          </picture>
-        </a>
       </h2>
       <section id="adresse">
         <h3>Adresse</h3>
@@ -687,10 +688,13 @@
         </address>
       </section>
       <section id="horaires">
-        <h3>Horaires</h3>
+        <h3>
+          Horaires
+          <p class="note">Mise à jours le <time datetime="2022-07-15">15/07/2022</time></p>
+        </h3>
         <ul>
-          <li>Du Lundi au Samedi: <time datetime="11:30">11:30</time> - <time datetime="14:00">14:00</time> et <time datetime="17:30">17:30</time> - <time datetime="23:30">23:30</time></li>
-          <li>Dimanche: <time datetime="18:00">18:00</time> - <time datetime="23:30">23:30</time></li>
+          <li>Du Lundi au Samedi: <time datetime="11:30">11:30</time> - <time datetime="00:00">minuit</time></li>
+          <li>Dimanche: <time datetime="18:00">18:00</time> - <time datetime="22:30">22:30</time></li>
         </ul>
       </section>
       <section id="mode-de-paiement">
@@ -712,8 +716,8 @@
       <iframe title="Localisation du restaurant sur google maps" src="data:text/html," data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.7255822007155!2d-4.494665984121122!3d48.385007541873975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4816b98a23463443%3A0x72f779015d6f613a!2sAu%20Falafel%20du%20Liban!5e0!3m2!1sen!2sus!4v1636908755965!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <script>
-      var rs = [['11:30', '14:00'], ['17:30', '23:30']],
-          rss = ['18:00', '23:30'],
+      var rs = [['11:30', '24:00']],
+          rss = ['18:00', '22:30'],
           now = new Date(),
           m = '<em>Fermé</em> ⋅ Ouvre à ' + time(now.getDay() == 6 /*Saturday*/ ? rss[0] : rs[0][0]),
           c = 'closed',
@@ -760,7 +764,11 @@
         return parseInt(tt[0], 10) + parseInt(tt[1], 10) / 60;
       }
       function time(t) {
-        return '<time datetime="' + t + '">' + t + '</time>';
+        return (
+          t == '24:00'
+          ? '<time datetime="00:00">minuit</time>'
+          : '<time datetime="' + t + '">' + t + '</time>'
+        );
       }
       function restore() {
         iframe.setAttribute('src', iframe.getAttribute('data-src'));
