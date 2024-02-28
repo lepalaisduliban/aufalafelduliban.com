@@ -768,11 +768,11 @@
       <section id="horaires">
         <h3>
           Horaires
-          <p class="note">Mise à jours le <time datetime="2023-07-07">07/07/2023</time></p>
+          <p class="note">Mise à jours le <time datetime="2024-02-28">28/02/2024</time></p>
         </h3>
         <ul>
           <li>Du Lundi au Samedi: <time datetime="11:30">11:30</time> - <time datetime="00:00">minuit</time></li>
-          <li>Dimanche: <time datetime="18:00">18:00</time> - <time datetime="22:30">22:30</time></li>
+          <li>Dimanche: <time datetime="11:30">11:30</time> - <time datetime="22:30">22:30</time></li>
         </ul>
       </section>
       <section id="mode-de-paiement">
@@ -795,7 +795,7 @@
     </div>
     <script>
       var rs = [['11:30', '24:00']],
-          rss = ['18:00', '22:30'],
+          rss = ['11:30', '22:30'],
           now = new Date(),
           m = '<em>Fermé</em> ⋅ Ouvre à ' + time(now.getDay() == 6 /*Saturday*/ ? rss[0] : rs[0][0]),
           c = 'closed',
