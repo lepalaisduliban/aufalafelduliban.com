@@ -344,6 +344,18 @@
       columns: 2;
       column-gap: 30px;
     }
+    #formule-mezze {
+      grid-area: auto / 1 / auto / -1;
+    }
+    #formule-mezze h2 {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    #formule-mezze h2 span {
+      margin-left: 1em;
+      font-size: 1rem;
+    }
     #sandwiches li,
     #assiettes li,
     #barquettes li,
@@ -502,9 +514,15 @@
       <p>Sandwich au choix + frites + salade libanaise + boisson</p>
     </section>
     <section id="formule-etudiant">
-      <span class="price">7€</span>
+      <span class="price">8€</span>
       <h2>Formule Étudiant</h2>
       <p>Sandwich au choix + frites + boisson</p>
+    </section>
+    <section id="formule-mezze">
+      <span class="price">40€</span>
+      <h2>Mezzé Hasrouth <span>(2 personnes)</span></h2>
+      <p>Assortiments de 5 entrées froides + 5 entrées chaude</p>
+      <p>Hommos, moutabal, warak enab, salade libanaise, taboulé, fatayer, sambouseck, feuillés aux fromage, falafels, kibbi</p>
     </section>
     <section id="sandwiches">
       <h2>Sandwiches</h2>
@@ -527,8 +545,43 @@
         </li>
         <li>
           <span class="price">7€</span>
-          <h3>Chawarma <span style="font-size: 0.7em;vertical-align: top;">(nouveau)</span></h3>
+          <h3>Chawarma</h3>
           <p>Viande poulet mariné (kebab)</p>
+        </li>
+        <li>
+          <span class="price">8€</span>
+          <h3>Agneau</h3>
+          <p>Brochette d'agneau mariné aux épices libanaise</p>
+        </li>
+      </ul>
+    </section>
+    <section id="barquettes" class="long-prices">
+      <h2>Barquettes</h2>
+      <p>(+ salade libanaise + frites)</p>
+      <ul>
+        <li>
+          <span class="price">8,50€</span>
+          <h3>Falafel</h3>
+          <p>4 falafels</p>
+        </li>
+        <li>
+          <span class="price">8,50€</span>
+          <h3>Kafta</h3>
+          <p>1 brochette</p>
+        </li>
+        <li>
+          <span class="price">8,50€</span>
+          <h3>Arayes viande</h3>
+          <p>Pain libanais grillé farci à la viande de bœuf hachée, persil, oignons</p>
+        </li>
+        <li>
+          <span class="price">8,50€</span>
+          <h3>Arayes au fromage</h3>
+          <p>Pain libanais grillé au fromage et au thym</p>
+        </li>
+        <li>
+          <span class="price">3€</span>
+          <h3>Frites</h3>
         </li>
       </ul>
     </section>
@@ -552,6 +605,11 @@
           <p>2 brochettes de kafta</p>
         </li>
         <li>
+          <span class="price">15€</span>
+          <h3>Agneau</h3>
+          <p>2 brochettes d'agneau</p>
+        </li>
+        <li>
           <span class="price">13€</span>
           <h3>Mix-Grill</h3>
           <p>1 brochette de kafta et 1 brochette de taouk</p>
@@ -567,44 +625,19 @@
           <p>1 brochette de kafta, 1 brochette de taouk et arayes</p>
         </li>
         <li>
+          <span class="price">18€</span>
+          <h3>Royale</h3>
+          <p>1 brochette de kafta, 1 brochette de taouk et 1 brochette d'agneau</p>
+        </li>
+        <li>
           <span class="price">16€</span>
           <h3>Assiette de Chawarma</h3>
           <p>Viande de poulet mariné</p>
         </li>
-      </ul>
-    </section>
-    <section id="barquettes" class="long-prices">
-      <h2>Barquettes</h2>
-      <p>(+ salade libanaise + frites)</p>
-      <ul>
         <li>
-          <span class="price">8,50€</span>
-          <h3>Falafel</h3>
-          <p>4 falafels</p>
-        </li>
-        <li>
-          <span class="price">8,50€</span>
-          <h3>Taouk</h3>
-          <p>1 brochette</p>
-        </li>
-        <li>
-          <span class="price">8,50€</span>
-          <h3>Kafta</h3>
-          <p>1 brochette</p>
-        </li>
-        <li>
-          <span class="price">8,50€</span>
-          <h3>Arayes viande</h3>
-          <p>Pain libanais grillé farci à la viande de bœuf hachée, persil, oignons</p>
-        </li>
-        <li>
-          <span class="price">8,50€</span>
-          <h3>Arayes au fromage</h3>
-          <p>Pain libanais grillé au fromage et au thym</p>
-        </li>
-        <li>
-          <span class="price">3€</span>
-          <h3>Frites</h3>
+          <span class="price">20€</span>
+          <h3>Assiette de Kebbi</h3>
+          <p>5 pièces de Kebbi</p>
         </li>
       </ul>
     </section>
@@ -618,17 +651,58 @@
         </li>
         <li>
           <span class="price">5€</span>
+          <h3>Moutabal</h3>
+          <p>Purée d'aubergine, crème de sésame, citron</p>
+        </li>
+        <li>
+          <span class="price">5€</span>
           <h3>Warak Enab</h3>
           <p>Feuilles de vigne farcies, riz, tomates, persil, citron</p>
         </li>
         <li>
           <span class="price">5€</span>
-          <h3>Salade libanaise</h3>
-          <p>Tomate, concombre, menthe sèche, huile d'olive et citron</p>
+          <h3>Taboulé</h3>
+          <p>Persil, tomate, oignons, huile d'olive, citron et blé concassé</p>
         </li>
         <li>
-          <span class="price">0,75€</span>
+          <span class="price">8€</span>
+          <h3>Fatayer</h3>
+          <p>4 fatayer farcies aux épinard + salade</p>
+        </li>
+        <li>
+          <span class="price">8€</span>
+          <h3>Sambouseck</h3>
+          <p>4 sambouseck farcies à la viande hachée + salade</p>
+        </li>
+        <li>
+          <span class="price">8€</span>
+          <h3>Feuilletés aux fromage</h3>
+          <p>4 feuilletés aux fromage + salade</p>
+        </li>
+        <li>
+          <span class="price">2€</span>
+          <h3>Kebbi à la pièce</h3>
+        </li>
+        <li>
+          <span class="price">1,50€</span>
+          <h3>Fatayer à la pièce</h3>
+        </li>
+        <li>
+          <span class="price">1,50€</span>
+          <h3>Sambouseck à la pièce</h3>
+        </li>
+        <li>
+          <span class="price">1,50€</span>
+          <h3>Feuilletés aux fromage à la pièce</h3>
+        </li>
+        <li>
+          <span class="price">1€</span>
           <h3>Falafel à la pièce</h3>
+        </li>
+        <li>
+          <span class="price">5€</span>
+          <h3>Salade libanaise</h3>
+          <p>Tomate, concombre, menthe sèche, huile d'olive et citron</p>
         </li>
       </ul>
     </section>
@@ -665,6 +739,8 @@
         <li>tahina</li>
         <li>ketchup</li>
         <li>harissa</li>
+        <li>algérienne</li>
+        <li>samourai</li>
       </ul>
     </section>
     <section id="contact">
